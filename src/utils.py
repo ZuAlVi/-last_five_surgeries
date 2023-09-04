@@ -10,8 +10,17 @@ def open_json(path):
     return operations
 
 
-def sort_by_executed_and_date(array: list) -> dict:
+def sort_by_executed_and_date(array: list) -> list:
     """Функция получает на вход список словарей.
     Возвращает список словарей с последними пятью
     выполнеными операциями"""
-    pass
+    executed_operation = []
+    for item in array:
+        if item.get('state') == 'EXECUTED':
+            executed_operation.append(item)
+    executed_operation.sort(key=lambda x: x['date'], reverse=True)
+    if len(executed_operation) > 5:
+        five_last_operations = executed_operation[:5]
+        return five_last_operations
+    else:
+        return executed_operation
