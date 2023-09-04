@@ -53,3 +53,22 @@ def get_from_or_to(data: list) -> str:
     """Функция принимает на вход список с данными
     и возвращает частично закодированную информацию
     о номере карты или счете"""
+    card_name = ''
+    for part in data:
+        if part.isalpha():
+            card_name += part + " "
+    card_name = card_name.strip()
+
+    if card_name == 'None':
+        card_number = ''
+    else:
+        card_number = data[-1]
+
+    if len(card_number) == 16:
+        code_number = f'{card_number[:4]} {card_number[4:6]}** **** {card_number[-4:]}'
+    elif len(card_number) == 0:
+        code_number = ''
+    else:
+        code_number = f"**{card_number[-4:]}"
+
+    return f'{card_name} {code_number}'
