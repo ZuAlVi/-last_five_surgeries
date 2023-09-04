@@ -29,3 +29,27 @@ def sort_by_executed_and_date(array: list) -> list:
 def get_information(array: dict, name_key: str) -> str:
     """Функция получает на вход словарь и ключ.
     Возвращает нужную информацию в зависимости от ключа."""
+    if name_key == 'date':
+        date = f"{array['date'][8:10]}.{array['date'][5:7]}.{array['date'][:4]}"
+        return date
+    elif name_key == "description":
+        description = array["description"]
+        return description
+    elif name_key == 'from':
+        temp_data = array.get(name_key, 'None').split()
+        result = get_from_or_to(temp_data)
+        return result
+    elif name_key == 'to':
+        temp_data = array.get(name_key, 'None').split()
+        result = get_from_or_to(temp_data)
+        return result
+    elif name_key == 'operationAmount':
+        temp_amount = array['operationAmount']
+        operation_amount = f"{temp_amount.get('amount')} {temp_amount['currency'].get('name')}"
+        return operation_amount
+
+
+def get_from_or_to(data: list) -> str:
+    """Функция принимает на вход список с данными
+    и возвращает частично закодированную информацию
+    о номере карты или счете"""
