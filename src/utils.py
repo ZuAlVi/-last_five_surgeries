@@ -24,3 +24,8 @@ def sort_by_executed_and_date(array: list) -> list:
         return five_last_operations
     else:
         return executed_operation
+
+
+def get_information(array: dict, name_key: str) -> str:
+    """Функция получает на вход словарь и ключ.
+    Возвращает нужную информацию в зависимости от ключа."""
