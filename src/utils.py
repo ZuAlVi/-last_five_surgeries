@@ -77,3 +77,4 @@ def get_from_or_to(data: list) -> str:
 def get_report(date: str, description: str, card_from: str, card_to:str, amount: str) -> str:
     """Функция принимает строковые данные и
     возвращает строку из данных"""
+    return f"{date} {description}\n{card_from} -> {card_to}\n{amount}"
