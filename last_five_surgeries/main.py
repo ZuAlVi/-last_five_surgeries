@@ -1,10 +1,14 @@
-from last_five_surgeries.setting import PATH
 from src import utils
+import json
 
 
 def main():
-    operations = utils.open_json(PATH)
-    last_5_operations = utils.sort_by_executed_and_date(operations)
+    with open('operations.json', "r", encoding='utf-8') as file:
+        file_json = file.read()
+    operations = json.loads(file_json)
+    executed_operations = utils.sort_by_executed(operations)
+    operations_sort_by_date = utils.sort_by_date(executed_operations)
+    last_5_operations = utils.get_last_five_operation(operations_sort_by_date)
     for item in last_5_operations:
         date_operation = utils.get_information(item, 'date')
         operation_descript = utils.get_information(item, "description")
