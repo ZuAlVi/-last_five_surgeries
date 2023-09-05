@@ -1,10 +1,9 @@
-from src.last_five_surgeries.setting import PATH
 from src import utils
 import json
 
 
 def main():
-    with open(PATH, "r", encoding='utf-8') as file:
+    with open('operations.json', "r", encoding='utf-8') as file:
         file_json = file.read()
     operations = json.loads(file_json)
     executed_operations = utils.sort_by_executed(operations)
