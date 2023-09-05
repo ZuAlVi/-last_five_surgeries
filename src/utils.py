@@ -41,7 +41,8 @@ def sort_by_date(array: list) -> list:
     """Функция получает на вход список словарей.
     Возвращает список словарей отсортрованных по
     ключу 'date' в обратном порядке."""
-
+    array.sort(key=lambda x: x['date'], reverse=True)
+    return array
 
 
 def get_information(array: dict, name_key: str) -> str:
