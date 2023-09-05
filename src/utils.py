@@ -26,6 +26,11 @@ def sort_by_executed_and_date(array: list) -> list:
         return executed_operation
 
 
+def sort_by_executed(array: list) -> list:
+    """Функция получает на вход список словарей.
+    Возвращает список словарей отсортрованных по
+    значению 'EXECUTED'"""
+
 def get_information(array: dict, name_key: str) -> str:
     """Функция получает на вход словарь и ключ.
     Возвращает нужную информацию в зависимости от ключа."""
