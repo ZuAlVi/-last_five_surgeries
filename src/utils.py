@@ -30,6 +30,12 @@ def sort_by_executed(array: list) -> list:
     """Функция получает на вход список словарей.
     Возвращает список словарей отсортрованных по
     значению 'EXECUTED'"""
+    executed_operation = []
+    for item in array:
+        if item.get('state') == 'EXECUTED':
+            executed_operation.append(item)
+    return executed_operation
+
 
 def get_information(array: dict, name_key: str) -> str:
     """Функция получает на вход словарь и ключ.
@@ -79,7 +85,7 @@ def get_from_or_to(data: list) -> str:
     return f'{card_name} {code_number}'
 
 
-def get_report(date: str, description: str, card_from: str, card_to:str, amount: str) -> str:
+def get_report(date: str, description: str, card_from: str, card_to: str, amount: str) -> str:
     """Функция принимает строковые данные и
     возвращает строку из данных"""
     return f"{date} {description}\n{card_from} -> {card_to}\n{amount}"
