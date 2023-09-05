@@ -49,6 +49,11 @@ def get_last_five_operation(array: list) -> list:
     """Функция получает на вход список.
     Если длина списка больше 5 возврвщает срез первых 5 индексов.
     Если длина списка меньше 5 возвращает изначальный список"""
+    if len(array) > 5:
+        five_last_operations = array[:5]
+        return five_last_operations
+    else:
+        return array
 
 
 def get_information(array: dict, name_key: str) -> str:
