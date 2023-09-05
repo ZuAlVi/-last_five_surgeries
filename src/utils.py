@@ -66,14 +66,15 @@ def get_from_or_to(data: list) -> str:
     else:
         card_number = data[-1]
 
-    if len(card_number) == 16:
-        code_number = f'{card_number[:4]} {card_number[4:6]}** **** {card_number[-4:]}'
+    if card_name == 'Счет':
+        code_number = f"**{card_number[-4:]}"
+
     elif len(card_number) == 0:
         code_number = ''
     else:
-        code_number = f"**{card_number[-4:]}"
+        code_number = f'{card_number[:4]} {card_number[4:6]}** **** {card_number[-4:]}'
 
-    return f'{card_name} {code_number}'
+    return f'{card_name.strip()} {code_number}'
 
 
 def get_report(date: str, description: str, card_from: str, card_to: str, amount: str) -> str:
