@@ -1,4 +1,4 @@
-from last_five_surgeries.setting import PATH
+from src.last_five_surgeries.setting import PATH
 from src import utils
 
 
